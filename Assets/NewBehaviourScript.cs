@@ -6,9 +6,9 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public float rotationSpeed; // svänghastighet
-    public SpriteRenderer rend;   
-    public SpriteRenderer rend1;
-    public SpriteRenderer rend2; //Jag gjorde 3 olika rends eftersom skeppet består av 3 sprites så jag gav en till varje. 
+    public SpriteRenderer spaceShipRend;   
+    public SpriteRenderer spaceShipRend1;
+    public SpriteRenderer spaceShipRend2; //Jag gjorde 3 olika rends eftersom skeppet består av 3 sprites så jag gav en till varje, lyckades inte göra till en enda stor 
     
     public Color newColor; //Dens färg
     public int Timer;
@@ -29,12 +29,12 @@ public class NewBehaviourScript : MonoBehaviour
         randomStartValueX = (Random.Range(-5, 5));
         randomStartValuey = (Random.Range(-8, 8)); // slumpar startpositionen
 
-        rend.color = newColor;
-        rend.color = new Color(1f, 1f, 1f);
-        rend1.color = newColor;
-        rend1.color = new Color(1f, 1f, 1f);
-        rend2.color = newColor;
-        rend2.color = new Color(1f, 1f, 1f); // när spelet startar så blir den vit, pga alla färger har samma värde.
+        spaceShipRend.color = newColor;
+        spaceShipRend.color = new Color(1f, 1f, 1f);
+        spaceShipRend1.color = newColor;
+        spaceShipRend1.color = new Color(1f, 1f, 1f);
+        spaceShipRend2.color = newColor;
+        spaceShipRend2.color = new Color(1f, 1f, 1f); // när spelet startar så blir den vit, pga alla färger har samma värde.
         BlueColor = 0;
         GreenColor = 0;
         RedColor = 0; // varje färg har var sin variabel
@@ -68,9 +68,9 @@ public class NewBehaviourScript : MonoBehaviour
             BlueColor = 0;
             RedColor = 0; //sätter alla andra färger på 0 innan den får sin färg
             transform.Rotate(0f, 0f, rotationSpeed * slowRotation * Time.deltaTime * (0.1f * Timer)); //Denna roterar långsammare än D, alltså roterar den långsammare åt höger än vänster
-            rend.color = new Color(0f, GreenColor, 0f);                               //Timer är där så den roterar snabbare ju mer tid som gått
-            rend1.color = new Color(0f, GreenColor, 0f);
-            rend2.color = new Color(0f, GreenColor, 0f);
+            spaceShipRend.color = new Color(0f, GreenColor, 0f);                               //Timer är där så den roterar snabbare ju mer tid som gått
+            spaceShipRend1.color = new Color(0f, GreenColor, 0f);
+            spaceShipRend2.color = new Color(0f, GreenColor, 0f);
             //Skeppet svänger vänster när man trycker A genom att den roterar. Den blir också färgen grön pga variablen GreenColor. Den sätter alla andra färger på 0
         }
         if (Input.GetKey(KeyCode.D))
@@ -79,9 +79,9 @@ public class NewBehaviourScript : MonoBehaviour
             GreenColor = 0;
             RedColor = 0; //sätter alla andra färger på 0 innan den får sin färg
             transform.Rotate(0f, 0f, -rotationSpeed * fastRotation * Time.deltaTime * (0.1f * Timer)); //Denna roterar snabbare än A, alltså roterar den snabbare åt höger än vänster
-            rend.color = new Color(0f, 0f, BlueColor);                                 //Timer är där så den roterar snabbare ju mer tid som gått
-            rend1.color = new Color(0f, 0f, BlueColor);
-            rend2.color = new Color(0f, 0f, BlueColor);
+            spaceShipRend.color = new Color(0f, 0f, BlueColor);                                 //Timer är där så den roterar snabbare ju mer tid som gått
+            spaceShipRend1.color = new Color(0f, 0f, BlueColor);
+            spaceShipRend2.color = new Color(0f, 0f, BlueColor);
         }//Skeppet svänger höger när man trycker D genom att den roterar. Den blir också färgen Blå pga variablen BlueColor. Den sätter alla andra färger på 0      
         if (Input.GetKey(KeyCode.S))
         {
@@ -93,9 +93,9 @@ public class NewBehaviourScript : MonoBehaviour
             BlueColor = Random.Range(0f, 1f);
             RedColor = Random.Range(0f, 1f);
             GreenColor = Random.Range(0f, 1f);
-            rend.color = new Color(RedColor, GreenColor, BlueColor);
-            rend1.color = new Color(RedColor, GreenColor, BlueColor);
-            rend2.color = new Color(RedColor, GreenColor, BlueColor);
+            spaceShipRend.color = new Color(RedColor, GreenColor, BlueColor);
+            spaceShipRend1.color = new Color(RedColor, GreenColor, BlueColor);
+            spaceShipRend2.color = new Color(RedColor, GreenColor, BlueColor);
             //Ger en randomvärde på varje Color-Variabel när man trycker Space
         }
 
